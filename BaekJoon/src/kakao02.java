@@ -31,4 +31,16 @@ class Solution {
         
         return ejectKey(finalMap, answer);
     }
+
+    private static int[] ejectKey(Map<Integer, Double> map, int[] answer) {
+        int i = 0;
+        List<Entry<Integer, Double>> list = new ArrayList<>(map.entrySet());
+        for(Entry<Integer, Double> entry : list) {
+            answer[i++] = entry.getKey();
+        }
+        return answer;
+    }
+
+
+
 }
