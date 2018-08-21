@@ -40,7 +40,17 @@ class Solution {
         }
         return answer;
     }
-
+    public static Map<Integer,Double> sortByValue(Map<Integer,Double> map){
+        List<Entry<Integer, Double>> list = new ArrayList<>(map.entrySet());
+        list.sort(reverseOrder(Entry.comparingByValue()));
+        
+        Map<Integer, Double> result = new LinkedHashMap<>();
+        for(Entry<Integer, Double> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        return result;        
+        
+    }
 
 
 }
