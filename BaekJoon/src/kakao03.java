@@ -43,7 +43,28 @@ public class kakao03 {
                    
            }
        }
+              int answer = 0;
+       answer= total % finalMap.size();
+       for( Map.Entry<Integer, Integer> elem : finalMap.entrySet() ){
+           if(elem.getValue() == answer) 
+               answer = elem.getKey();
+       }
        
+        
+       return answer;
+    }
+    
+    public static Map<Integer, Integer> sortByValue(Map<Integer,Integer> map){
+        List<Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
+        list.sort(Entry.comparingByValue());
+        
+        Map<Integer, Integer> result = new LinkedHashMap<>();
+        for(Entry<Integer, Integer> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        return result;        
+        
+    }
 
 
 }
