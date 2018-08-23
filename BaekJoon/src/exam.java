@@ -28,7 +28,22 @@ public class exam {
                 points[2]++;
         }
         
+        int maxPoint=Math.max(points[0],Math.max(points[1], points[2]));
         
+        for(int i = 0; i < points.length;i++) {
+            if(points[0] == maxPoint && !answerList.contains(1))
+                answerList.add(1);
+            if(points[1] == maxPoint && !answerList.contains(2))
+                answerList.add(2);
+            if(points[2] == maxPoint && !answerList.contains(3))
+                answerList.add(3);
+        }
+        
+        int[] answer = new int[answerList.size()];
+        int count = 0;
+        for(int i : answerList) {
+            answer[count++] = i;
+        }
        
         return answer;
     }
