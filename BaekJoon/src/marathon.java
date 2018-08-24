@@ -23,7 +23,21 @@ public class marathon {
             map.put(participant[i], dup);
         }
         
-        
+        for(int i = 0; i < completion.length; i++) {
+            List<Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+            for(Entry<String, Integer> entry : list) {
+                if(entry.getKey() == completion[i]) {
+                    map.put(entry.getKey(), entry.getValue()-1);
+                }
+            }
+        }
+        String answer = "";
+        List<Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+        for(Entry<String, Integer> entry : list) {
+            if(entry.getValue() != 0) {
+                answer = entry.getKey();
+            }
+        }
         
         return answer;
         
