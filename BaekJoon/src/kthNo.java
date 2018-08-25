@@ -10,5 +10,25 @@ public class kthNo {
         System.out.println(solution(array, commands));
 
     }
-    
+    public static int[] solution(int[] array, int[][] commands) {
+        int[] command;
+        int[] answer = new int[commands.length];
+        int k;
+        int start;
+        int end;
+        
+        for(int i = 0; i < commands.length;i++) {
+            command = commands[i];
+            start = command[0]-1;
+            end = command[1]-1;
+            k = command[2]-1;
+            int[] temp = new int[end-start+1];
+            System.arraycopy(array, start, temp, 0, end-start+1);
+            Arrays.sort(temp);
+            answer[i] = temp[k];
+        }
+        
+        return answer;
+    }
+
 }
